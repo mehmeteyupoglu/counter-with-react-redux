@@ -8,33 +8,19 @@ function App() {
   const counter = useSelector(state => state.counter)
   const isLogged = useSelector(state => state.isLogged)
   const dispatch = useDispatch()
-
   return (
     <div className="App">
       <h1>Counter : {counter}</h1>
-        {
-          isLogged ? 
-          <h2>You are signed in. You can play with the counter. </h2>: 
-          <h2>You need to sign in to play with the counter.</h2>
-        }
-      <button 
-      style={isLogged ? buttonStyle : disable} 
-      onClick={() => dispatch(increment())}>
-      +
-      </button>
-      
-      <button 
-      style={isLogged ? buttonStyle : disable} 
-      onClick={() => dispatch(decrement())}>
-      -
-      </button>
-      
-      <br/>
       {
-        isLogged ? 
-        <button style= {buttonStyle} onClick={() => dispatch(login())}> LOGOUT</button> : 
-        <button style= {buttonStyle} onClick={() => dispatch(login())}> LOGIN</button> 
+        isLogged ? <h1>Now, you can play with the counter.</h1> : <h1>You need to login to play with the counter</h1>
       }
+      <button style = {isLogged ? buttonStyle : disable} onClick={() => dispatch(increment())}>+</button>
+      <button style = {isLogged ? buttonStyle : disable} onClick={() => dispatch(decrement())}>-</button>
+      <br/>
+        <button style = {buttonStyle} onClick={() => dispatch(login())}>{
+          isLogged ? "LOGOUT" : "LOGIN"
+        }</button> 
+
     </div>
   );
 }
