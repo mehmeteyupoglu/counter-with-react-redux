@@ -1,5 +1,5 @@
 const isLogged = (state = false, action) => {
-    switch(action.type) {
+    switch(action.type){
         case "SIGN_IN": 
             return !state; 
         default: 
@@ -7,4 +7,4 @@ const isLogged = (state = false, action) => {
     }
 }
 
-export default isLogged; 
+export default isLogged
