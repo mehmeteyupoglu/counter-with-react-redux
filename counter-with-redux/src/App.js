@@ -12,15 +12,19 @@ function App() {
   return (
     <div className="App">
       <h1>Counter : {counter}</h1>
-
+        {
+          isLogged ? 
+          <h2>You are signed in. You can play with the counter. </h2>: 
+          <h2>You need to sign in to play with the counter.</h2>
+        }
       <button 
-      style={buttonStyle} 
+      style={isLogged ? buttonStyle : disable} 
       onClick={() => dispatch(increment())}>
       +
       </button>
       
       <button 
-      style={buttonStyle} 
+      style={isLogged ? buttonStyle : disable} 
       onClick={() => dispatch(decrement())}>
       -
       </button>
